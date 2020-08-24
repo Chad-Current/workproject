@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Oxygen|Arimo|Comfortaa|Merriweather|Slabo|Lora|Roboto" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'isicwebdatabase/css/base.css' %}">
+  <script src="https://kit.fontawesome.com/ea6a27c21b.js" crossorigin="anonymous"></script>
+
+  <title>Radio User Database</title>
+</head>
+
+<style>@media only screen and (max-width: 600px) {
+  .navigation{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    margin-bottom: 1em;
+    font-size: 2rem;
+  }
+  .nav-left{
+    margin-left: 0em;
+    color: #112D32;
+  }
+  .nav-left icon{
+    font-size: 2em;
+  }
+  .nav-right{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    margin: 1em 0em 0em 0em;
+  }
+  .nav-right a{
+    font-size: 2rem;
+  }
+  .user-information{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 2em 0em 1em 1em;
+  }
+  .top-margin li{
+    display: flex;
+    flex-flow: column wrap;
+  }
+  .toggle-ahref{
+    display: flex;
+    flex-flow: column wrap;
+  }
+  .toggle-ahref a{
+    padding-top: 1.75em;
+  }
+
+}
+
+
+</style>
+
+<body>
+
+  <nav class='side-navbar'>
+    <ul class='side-navbar-nav'>
+      <li class='logo'>
+        <a href="{% url 'isicwebdatabase:index-home' %}" class='side-nav-link'>
+          <i class="fas fa-home"></i>
+          <span class='side-link-text'>Home</span>
+        </a>
+      </li>
+      <li class='side-nav-item'>
+        <a href="{% url 'isicwebdatabase:poc-home' %}" class='side-nav-link'>
+          <i class="fas fa-database"></i>
+          <span class='side-link-text'>ISICS Point of Contact</span>
+        </a>
+      </li>
+      <li class='side-nav-item'>
+        <a href="{% url 'isicwebdatabase:applicant-results' %}" class='side-nav-link'>
+          <i class="fas fa-poll"></i>
+          <span class='side-link-text'>ISICS Applicants</span>
+        </a>
+      </li>
+      <li class='side-nav-item'>
+        <a href="{% url 'isicwebdatabase:genesis-reports' %}" class='side-nav-link'>
+          <i class="fas fa-envelope-open-text"></i>
+          <span class='side-link-text'>Genesis Report Request</span>
+        </a>
+      </li>
+      <li class='side-nav-item'>
+        <a href="{% url 'isicwebdatabase:site-home-info' %}" class='side-nav-link'>
+          <i class="fas fa-broadcast-tower"></i>
+          <span class='side-link-text'>Site Ids</span>
+        </a>
+      </li>
+      <li class='side-nav-item'>
+        <a href="https://gendpdc/iVista/Account/Login?ReturnUrl=%2fiVista%2f" target="_blank" class='side-nav-link'>
+          <i class="fas fa-desktop"></i>
+          <span class='side-link-text'>GenWatch3</span>
+        </a>
+      </li>
+      <li class='side-nav-item'>
+        <a href="https://app.safetyculture.io/login.html" target="_blank" class='side-nav-link'>
+          <i class="fas fa-edit"></i>
+          <span class='side-link-text'>Iauditor</span>
+        </a>
+      </li>
+      <li class='side-nav-item'>
+        <a href="{% url 'isicwebdatabase:site-training' %}" class='side-nav-link'>
+          <i class="fas fa-walking"></i>
+          <span class='side-link-text'>Site Walk Training</span>
+        </a>
+      </li>
+      <li class='side-nav-item'>
+        <a href="{% url 'isicwebdatabase:profile-home' %}" class='side-nav-link'>
+          <i class="far fa-user-circle"></i>
+          <span class='side-link-text'>My Profile</span>
+        </a>
+      </li>
+      {% if user.is_authenticated %}
+      <li class='side-nav-item'>
+        <a href="{% url 'isicwebdatabase:logout' %}" class='side-nav-link'>
+          <i class="fas fa-sign-out-alt"></i>
+          <span class='side-link-text'>Log out</span>
+        </a>
+      </li>
+      {% else %}
+      <li class='side-nav-item'>
+        <a href="{% url 'isicwebdatabase:login' %}" class='side-nav-link'>
+          <i class="fas fa-sign-out-alt"></i>
+          <span class='side-link-text'>Log in</span>
+        </a>
+      </li>
+      {% endif %}
+    </ul>
+  </nav>
+
+<div class='main'>
+    <div class="user-information">
+      <div class="nav-left">
+        <icon><a href="{% url 'isicwebdatabase:index-home' %}">ISICS Portal</a></icon>
+        <!-- <img src="{% static 'isicwebdatabase/images/isics_logo_final-01.jpg' %}" class='img-contain'/> -->
+      </div>
+    </div>
+    <h1>Camera???</h1>
+    {{cv2|safe}}
+    <h2>No</h2>
+</div>
+
+</body>
+</html>

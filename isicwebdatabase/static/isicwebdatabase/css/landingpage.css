@@ -1,0 +1,298 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  background:url("../images/isics_logo_final-01.jpg");
+  background-repeat: no-repeat;
+  background-position:top;
+}
+
+.highlighted {
+  color: white;
+}
+
+.test {
+  color: #333555;
+}
+
+/* color scheme
+#0B0C10 black
+#1F2833 mid black
+#C5C6C7 grayish
+#66FCF1; neon bluish
+#45A29E darker bluish
+
+#88BDBC bluish green
+#254E58 blue type
+#112D32 darker blue
+#4F4A41 darker gray
+#6E6658 lighter gray
+
+#61892F Dark green
+#39FF14 Neon green
+#222629 black
+#474B4F dark grey
+#6B6E70 light grey
+#1B03A3 Neon blue
+
+*/
+li {
+  list-style: none;
+  color: #FAFAFA;
+  font-size: 2rem;
+  font-family: "Lora";
+}
+
+button {
+  margin-top: 1.5em;
+  background-color: #4666FF;
+  color: #FAFAFA;
+}
+
+hr {
+  width: auto;
+  height: 0.25em;
+  background-color: #4666FF;
+}
+
+label {
+  color: #4666FF;
+}
+
+input:hover, input:focus {
+  box-shadow: 0 0 5px 3px #4666FF;
+}
+
+.base-container{
+  display: flex;
+  flex-flex: column wrap;
+  justify-content: flex-end;
+  flex-flow: column wrap;
+  align-items: flex-end;
+  align-self: flex-end;
+  align-content: flex-end;
+  font-size: 2rem;
+
+}
+
+.login-form{
+  display: flex;
+  flex-direction: column;
+  align-content: flex-end;
+  font-family: 'Oswald';
+  font-size: 1em;
+}
+
+.messages-dark li{
+  margin-top: 5em;
+  color: black;
+}
+
+.logout-message{
+  font-size: 1.25em;
+  font-family: 'Oswald';
+  margin: 2em 1.25em;
+  padding: 1em;
+  color: #FAFAFA;
+  background-image: linear-gradient(to left, #47918e, #1E4258);
+  border-radius: 10px;
+}
+
+.form-large{
+  font-size: 2rem;
+}
+
+.signup{
+  margin-top: 2em;
+}
+
+.img-contain {
+  max-width: 15em;
+  max-height: auto;
+  min-width: 2em;
+  min-height: auto;
+  opacity: 85%;
+}
+
+.img-icon{
+  max-width: 10em;
+  max-height: auto;
+  min-width: 5em;
+  min-height: auto;
+}
+
+
+.search-btn {
+  background-color: #FAFAFA;
+}
+
+.nav-link {
+  color: #FAFAFA;
+}
+
+.nav-tabs{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: solid 2px #4666FF;
+}
+.nav-link{
+  color: #4666FF;
+}
+.navigation {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: auto;
+  margin: 5em 0em;
+  padding: 1.5em 0em;
+  border-top: 2px solid #4666FF;
+  border-bottom: 2px solid #4666FF;
+}
+
+
+.nav-left icon {
+  margin-left: 0.25em;
+  font-size: 3em;
+}
+.nav-left icon a {
+  text-decoration: none;
+  color: #FAFAFA;
+}
+
+.nav-right {
+  padding-left: 2em;
+}
+
+.nav-right a {
+  margin-right: 1.25em;
+}
+
+.nav-right a:link {
+  text-decoration: none;
+  color: #39FF14;
+}
+
+.nav-right a:visited {
+  text-decoration: none;
+  color: #39FF14;
+}
+
+.nav-right a:hover {
+  text-decoration: none;
+  color: #6B6E70;
+}
+
+.nav-right a:active {
+  text-decoration: none;
+  color: #6B6E70;
+}
+
+.user-information {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0px;
+  color: #39FF14;
+}
+
+.displayinformation {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  margin-bottom: 2em;
+  color: #4666FF;
+}
+
+.display-list {
+  background: #1F2023;
+  font-family: "Oswald";
+  color: black;
+  box-shadow: -2px -2px 2px 2px #4666FF;
+}
+
+.form-inline {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: baseline;
+  padding-top: 1em;
+  padding-right: 2em;
+}
+
+.form-check-label {
+  padding-top: 2em;
+}
+
+.header {
+  display: flex;
+  justify-content: baseline;
+  /* margin-top: 5em; */
+  /* background: url('../images/isicsb_logo.jpg'); */
+}
+
+.block {
+  display: grid;
+  justify-content: stretch;
+  margin-bottom: 2em;
+}
+
+.block ul {
+  padding: 0em 0em 2em 1em;
+}
+
+.block li {
+  font-size: 2rem;
+  font-family: Oxygen;
+  color: #FDFDFD;
+}
+
+.block a {
+  margin-right: 1.5em;
+  color: #FDFDFD;
+  font-family: Roboto;
+  font-size: 1.5rem;
+}
+
+.tags {
+  border: solid 0.5em #39FF14;
+  border-radius: 1em;
+  margin: 1em;
+}
+
+.toggle-ahref {
+  justify-content: flex-start;
+}
+
+.toggle-ahref a {
+  color: #39FF14;
+}
+
+.updateuser {
+  /* border: solid 5px #39FF14;
+  border-radius: 3px; */
+}
+
+.updateuser:hover {
+  color: #FFE400;
+  text-shadow: 1px 3px 1px #000;
+  text-decoration: none;
+  border: none;
+}
+
+.deleteuser {
+  /* border: solid 5px #39FF14;
+  border-radius: 3px; */
+}
+
+.deleteuser:hover {
+  color: #F50740;
+  text-shadow: 1px 3px 1px #000;
+  text-decoration: none;
+  border: none;
+}
+
+/*# sourceMappingURL=base.css.map */
+/*# sourceMappingURL=base.scss.map */
+
+/*# sourceMappingURL=base.css.map */

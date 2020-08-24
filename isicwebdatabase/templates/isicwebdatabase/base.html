@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+  {% load crispy_forms_tags %}
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Oxygen|Arimo|Comfortaa|Merriweather|Slabo|Lora|Roboto" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'isicwebdatabase/css/base.css' %}">
+  <script src="https://kit.fontawesome.com/ea6a27c21b.js" crossorigin="anonymous"></script>
+
+  <title>Radio User Database</title>
+</head>
+
+<style>@media only screen and (max-width: 600px) {
+
+}
+
+
+</style>
+
+<body>
+
+  <div class='container'>
+
+    <div class='container base-container'>
+      <div>
+        <form method="POST" >  <!-- Took out action= index-home for testing -->
+          {% csrf_token %}
+          <fieldset style='color:black'>
+            <legend class='border-bottom mb-4'>Log In</legend>
+            {{ form|crispy }}
+          </fieldset>
+          <div class='form-group'>
+            <button type="submit" class="btn mb-2">Submit</button>
+          </div>
+          <!-- Adjust margin height in css later -->
+            <div class='signup'>
+              <label for='signup'><a href="{% url 'isicwebdatabase:register-user' %}">Register</a></label>
+            </div>
+          </form>
+      </div>
+
+      <div>
+        {% if messages %}
+          <ul class="messages messages-dark">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+      </div>
+    </div>
+  </div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
