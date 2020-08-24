@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Oxygen|Arimo|Comfortaa|Merriweather|Slabo|Lora|Roboto" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'isicwebdatabase/css/base.css' %}">
+  <script src="https://kit.fontawesome.com/ea6a27c21b.js" crossorigin="anonymous"></script>
+
+  <title>Radio User Database</title>
+</head>
+
+<body>
+
+  <nav class='side-navbar'>
+    <ul class='side-navbar-nav'>
+      <li class='logo'>
+        <a href="{% url 'isicwebdatabase:index-home' %}" class='side-nav-link'>
+          <i class="fas fa-home"></i>
+          <span class='side-link-text'>Home</span>
+        </a>
+      </li>
+      <li class='side-nav-item'>
+        <a href="{% url 'isicwebdatabase:poc-home' %}" class='side-nav-link'>
+          <i class="fas fa-database"></i>
+          <span class='side-link-text'>ISICS Point of Contact</span>
+        </a>
+      </li>
+      <li class='side-nav-item'>
+        <a href="{% url 'isicwebdatabase:applicant-results' %}" class='side-nav-link'>
+          <i class="fas fa-poll"></i>
+          <span class='side-link-text'>ISICS Applicants</span>
+        </a>
+      </li>
+      <li class='side-nav-item'>
+        <a href="{% url 'isicwebdatabase:genesis-reports' %}" class='side-nav-link'>
+          <i class="fas fa-envelope-open-text"></i>
+          <span class='side-link-text'>Genesis Report Request</span>
+        </a>
+      </li>
+      <li class='side-nav-item'>
+        <a href="{% url 'isicwebdatabase:site-home-info' %}" class='side-nav-link'>
+          <i class="fas fa-broadcast-tower"></i>
+          <span class='side-link-text'>Site Ids</span>
+        </a>
+      </li>
+      <li class='side-nav-item'>
+        <a href="#" class='side-nav-link'>
+          <i class="fas fa-exclamation-triangle"></i>
+          <span class='side-link-text'>Radio System Troubleshooting</span>
+        </a>
+      </li>
+      <li class='side-nav-item'>
+        <a href="#" class='side-nav-link'>
+          <i class="fas fa-user-astronaut"></i>
+          <span class='side-link-text'>Radio Database Log</span>
+        </a>
+      </li>
+      <li class='side-nav-item'>
+        <a href="#" class='side-nav-link'>
+          <i class="fas fa-ticket-alt"></i>
+          <span class='side-link-text'>Ticket System</span>
+        </a>
+      </li>
+      <li class='side-nav-item'>
+        <a href="{% url 'isicwebdatabase:profile-home' %}" class='side-nav-link'>
+          <i class="far fa-user-circle"></i>
+          <span class='side-link-text'>My Profile</span>
+        </a>
+      </li>
+      {% if user.is_authenticated %}
+      <li class='side-nav-item'>
+        <a href="{% url 'isicwebdatabase:logout' %}" class='side-nav-link'>
+          <i class="fas fa-sign-out-alt"></i>
+          <span class='side-link-text'>Log out</span>
+        </a>
+      </li>
+      {% else %}
+      <li class='side-nav-item'>
+        <a href="{% url 'isicwebdatabase:login' %}" class='side-nav-link'>
+          <i class="fas fa-sign-out-alt"></i>
+          <span class='side-link-text'>Log in</span>
+        </a>
+      </li>
+      {% endif %}
+    </ul>
+  </nav>
+
+  <div class='container'>
+    <div class="user-information">
+      <div class="nav-left">
+        <icon><a href="{% url 'isicwebdatabase:index-home' %}">ISICS Portal</a></icon>
+        <!-- <img src="{% static 'isicwebdatabase/images/isics_logo_final-01.jpg' %}" class='img-contain'/> -->
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <div class='container vid-con'>
+      <p>Site walking training/ other training</p>
+      <p>Additional items will be added by request</p>
+    </div>
+    <div class='container vid-con'>
+      <video style='border: solid 5px black' width="720" height="640" controls></video>
+    </div>
+    <p class='footer'>Footer</p>
+  </main>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

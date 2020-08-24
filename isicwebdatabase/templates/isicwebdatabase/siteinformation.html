@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Oxygen|Arimo|Comfortaa|Merriweather|Slabo|Lora|Roboto|Alata" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'isicwebdatabase/css/base.css' %}">
+  <script src="https://kit.fontawesome.com/ea6a27c21b.js" crossorigin="anonymous"></script>
+
+  <title>Radio User Database</title>
+</head>
+
+
+</style>
+
+<body>
+
+  <nav class='side-navbar'>
+    <ul class='side-navbar-nav'>
+      <li class='logo'>
+        <a href="{% url 'isicwebdatabase:index-home' %}" class='side-nav-link'>
+          <i class="fas fa-home"></i>
+          <span class='side-link-text'>Home</span>
+        </a>
+      </li>
+      <li class='side-nav-item'>
+        <a href="{% url 'isicwebdatabase:poc-home' %}" class='side-nav-link'>
+          <i class="fas fa-database"></i>
+          <span class='side-link-text'>ISICS Point of Contact</span>
+        </a>
+      </li>
+      <li class='side-nav-item'>
+        <a href="{% url 'isicwebdatabase:applicant-results' %}" class='side-nav-link'>
+          <i class="fas fa-poll"></i>
+          <span class='side-link-text'>ISICS Applicants</span>
+        </a>
+      </li>
+      <li class='side-nav-item'>
+        <a href="{% url 'isicwebdatabase:genesis-reports' %}" class='side-nav-link'>
+          <i class="fas fa-envelope-open-text"></i>
+          <span class='side-link-text'>Genesis Report Request</span>
+        </a>
+      </li>
+      <li class='side-nav-item'>
+        <a href="{% url 'isicwebdatabase:site-home-info' %}" class='side-nav-link'>
+          <i class="fas fa-broadcast-tower"></i>
+          <span class='side-link-text'>Site Ids</span>
+        </a>
+      </li>
+      <li class='side-nav-item'>
+        <a href="#" class='side-nav-link'>
+          <i class="fas fa-exclamation-triangle"></i>
+          <span class='side-link-text'>Radio System Troubleshooting</span>
+        </a>
+      </li>
+      <li class='side-nav-item'>
+        <a href="#" class='side-nav-link'>
+          <i class="fas fa-user-astronaut"></i>
+          <span class='side-link-text'>Radio Database Log</span>
+        </a>
+      </li>
+      <li class='side-nav-item'>
+        <a href="{% url 'ticket:ticket-reporting' %}" class='side-nav-link'>
+          <i class="fas fa-ticket-alt"></i>
+          <span class='side-link-text'>Ticket System</span>
+        </a>
+      </li>
+      <li class='side-nav-item'>
+        <a href="{% url 'isicwebdatabase:profile-home' %}" class='side-nav-link'>
+          <i class="far fa-user-circle"></i>
+          <span class='side-link-text'>My Profile</span>
+        </a>
+      </li>
+      {% if user.is_authenticated %}
+      <li class='side-nav-item'>
+        <a href="{% url 'isicwebdatabase:logout' %}" class='side-nav-link'>
+          <i class="fas fa-sign-out-alt"></i>
+          <span class='side-link-text'>Log out</span>
+        </a>
+      </li>
+      {% else %}
+      <li class='side-nav-item'>
+        <a href="{% url 'isicwebdatabase:login' %}" class='side-nav-link'>
+          <i class="fas fa-sign-out-alt"></i>
+          <span class='side-link-text'>Log in</span>
+        </a>
+      </li>
+      {% endif %}
+    </ul>
+  </nav>
+
+<main class='main'>
+    <div class="user-information">
+      <div class="nav-left">
+        <icon><a href="{% url 'isicwebdatabase:index-home' %}">Portal</a></icon>
+      </div>
+    </div>
+
+
+ <div class='nav-bar'>
+   <!-- Nav tabs -->
+
+   {% if object_list.count >= 1 %}
+   <h3 class='displayrecords'>{{ object_list.count }}&nbsp Records Found</h3>
+   {% endif %}
+   {% if messages %}
+     {% for message in messages %}
+     <!-- <ul class="messages"> -->
+      <h1 class="{{ message.tags }} messages" >{{ message }}</h1>
+     <!-- </ul> -->
+     {% endfor %}
+    {% endif %}
+
+          <ul class="nav">
+            <div>
+            <li >
+              <a class="nav-link" data-toggle="tab" href="#site_name_search">Search by Site Name</a>
+            </li>
+            <li >
+              <a class="nav-link" data-toggle="tab" href="#site_id_search">Search by Site ID</a>
+            </li>
+            </div>
+          </ul>
+          <hr></hr>
+      <!-- Tab panes -->
+        <div class="tab-content">
+          <div id="site_name_search" class="tab-pane"><br>
+            <nav class=" navbar-expand-sm ">
+              <form class="form-inline" action="{% url 'isicwebdatabase:site-name-info' %}" method="get">
+              <input class="form-control mr-sm-2" type='search' name='site_name' placeholder="Site" ></input></br>
+              <button type="submit">Search</button>
+              </form>
+            </nav>
+          </div>
+
+          <div id="site_id_search" class="tab-pane"><br>
+            <nav class=" navbar-expand-sm ">
+              <form class="form-inline" action="{% url 'isicwebdatabase:site-id-info' %}" method="get">
+              <input class="form-control mr-sm-2" type='search' name='site_id' placeholder="Site" ></input></br>
+              <button type="submit">Search</button>
+              </form>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+
+
+      {% if object_list %}
+      <div class='legend'>
+        <h3 class='standard'>State owned sites<div class='blue-box'></div></h3>
+        <h3 class='standard'>Non State owned sites<div class='orange-box'></div></h3>
+      </div>
+        {% for item in object_list %}
+        {% if item.state_owned == True %}
+        <ul class="display-list displayinformation">
+          <li><h3>{% if item.site_name %}Site Name: &nbsp&nbsp {{ item.site_name }}{% endif %}</h3></li>
+          <li>{% if item.site_id %}Site ID: &nbsp&nbsp {{ item.site_id }}{% endif %}</li>
+          <li>{% if item.site_asr %}ASR: &nbsp&nbsp {{ item.site_asr }}{% endif %}</li>
+          <li>{% if item.site_location %}911 Address: &nbsp&nbsp {{ item.site_location }}{% endif %}</li>
+          <li>{% if item.site_gps_coord %}GPS Coordinates: &nbsp&nbsp {{ item.site_gps_coord }}{% endif %}</li>
+        </ul>
+        {% else %}
+        <ul class="display-list-none displayinformation-none">
+          <li><h3>{% if item.site_name %}Site Name: &nbsp&nbsp {{ item.site_name }}{% endif %}</h3></li>
+          <li>{% if item.site_id %}Site ID: &nbsp&nbsp {{ item.site_id }}{% endif %}</li>
+          <li>{% if item.site_asr %}ASR: &nbsp&nbsp {{ item.site_asr }}{% endif %}</li>
+          <li>{% if item.site_location %}911 Address: &nbsp&nbsp {{ item.site_location }}{% endif %}</li>
+          <li>{% if item.site_gps_coord %}GPS Coordinates: &nbsp&nbsp {{ item.site_gps_coord }}{% endif %}</li>
+        </ul>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+
+    </main>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
