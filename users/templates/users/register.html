@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+  {% load crispy_forms_tags %}
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Oxygen|Arimo|Comfortaa|Merriweather|Slabo|Lora|Roboto" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'isicwebdatabase/css/base.css' %}">
+  <script src="https://kit.fontawesome.com/ea6a27c21b.js" crossorigin="anonymous"></script>
+
+  <title>Radio User Database</title>
+</head>
+
+<style>@media only screen and (max-width: 600px) {
+  .navigation{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    margin-bottom: 1em;
+    font-size: 2rem;
+  }
+  .nav-left{
+    margin-left: 0em;
+    color: #112D32;
+  }
+  .nav-left icon{
+    font-size: 2em;
+  }
+  .nav-right{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    margin: 1em 0em 0em 0em;
+  }
+  .nav-right a{
+    font-size: 2rem;
+  }
+  .user-information{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 2em 0em 1em 1em;
+  }
+  .top-margin li{
+    display: flex;
+    flex-flow: column wrap;
+  }
+  .toggle-ahref{
+    display: flex;
+    flex-flow: column wrap;
+  }
+  .toggle-ahref a{
+    padding-top: 1.75em;
+  }
+
+}
+
+
+</style>
+
+<body>
+
+  <div class='base-container'>
+    <a href="{% url 'isicwebdatabase:login' %}">Login Page</a>
+  </div>
+
+  <div class='login-form-contain'>
+    <div class='conainer highlighted'>
+      <h1>Registeration Form</h1>
+    </div>
+    <div conainer-centered >
+      <form class='login-form' method="POST" >
+        {% csrf_token %}
+        <fieldset class="form-group">
+          {{ form|crispy }}
+          <div class="form-group">
+            <input type='submit' value='Submit' class='btn'>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  </body>
+  </html>
